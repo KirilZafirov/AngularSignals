@@ -59,6 +59,7 @@ export class DoubleCountComponent {
 
     private readonly destroy$$ = new Subject<void>();
     countSub = new BehaviorSubject(2);
+    // Doesn't have access to the current value but the most recent one
     doubleCountSub: Observable<number> = this.countSub.pipe(map((count) => count * 2),
     tap(value => console.log('using subjects from assignment to doubleCountSub', value)));
     propFromDoubleCountSubject = '';
