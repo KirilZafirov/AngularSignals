@@ -43,12 +43,12 @@ export class DerivedValueComponent implements OnInit, OnDestroy   {
     valueOne = signal(1);
     valueTwo = signal(10);
     derivedValue = computed( () => {
-        console.log('using signals')
+        console.log('Compute Value Using signals')
         return this.valueOne() * this.valueTwo()
     });
     changeValues(){
-        this.valueOne.set(  this.valueOne() + 2);
-        this.valueTwo.set( this.valueTwo() + this.valueOne());
+        this.valueOne.set(  2);
+        this.valueTwo.set( 20);
     }
  
     
@@ -61,8 +61,8 @@ export class DerivedValueComponent implements OnInit, OnDestroy   {
         map(([countOne, countTwo]) => countOne * countTwo));
 
     changeValuesInSubjects(){
-        this.countOne.next( this.countOne.getValue() + 2);
-        this.countTwo.next( this.countTwo.getValue() + this.countOne.getValue());
+        this.countOne.next(  2);
+        this.countTwo.next( 20);
     }
 
     ngOnInit() {
